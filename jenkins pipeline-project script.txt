@@ -1,0 +1,27 @@
+node{
+    
+      //clone
+   
+          stage('clone')
+                {
+git 'https://github.com/openmrs/openmrs-core.git'
+}
+
+     //build
+
+       stage('build')
+                 {
+bat 'mvn package'
+     }
+
+     //archive
+    
+         stage('archive')
+
+                {
+ archiveArtifacts artifacts: '', onlyIfSuccessful: true
+     }
+ 
+      
+}   
+    
